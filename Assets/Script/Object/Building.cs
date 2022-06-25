@@ -15,7 +15,7 @@ public class Building : Object
         if (CheckItem())
             MoveToInventory();
         Debug.Log("Player Dont Have Item Needed");
-
+        // beritahu pemain item apa yang dibutuhkan
     }
     public bool CheckItem()
     {
