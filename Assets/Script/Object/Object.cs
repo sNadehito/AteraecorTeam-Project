@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
+    [Header("Glitch Need")]
+    public Sprite objectSprite;
+    public Sprite objectSpriteGlitch;
+
     public Sprite itemSprite;
     public string itemName;
     protected Inventory inventory;
@@ -17,6 +21,7 @@ public class Object : MonoBehaviour
 
     void Start()
     {
+        gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
         inventory = FindObjectOfType<Inventory>();
     }
 

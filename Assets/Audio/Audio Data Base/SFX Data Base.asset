@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e672ede3db97eca4581d8c3d200239cb, type: 3}
   m_Name: SFX Data Base
   m_EditorClassIdentifier: 
-  lineSound: []
+  lineSound:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
