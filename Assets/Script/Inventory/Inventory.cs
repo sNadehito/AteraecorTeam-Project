@@ -68,7 +68,7 @@ public class Inventory : MonoBehaviour
             itemSlots.IsFull = false;
             itemSlots.ItemName = null;
             // Hapus UI dan game object pada itemSlot
-            GameObject.Destroy(itemSlots.Slot);
+            itemSlots.Slot.GetComponent<Image>().sprite = null;
             return true;
         }
         Debug.LogWarning("item dengan nama : " + itemSlots.ItemName + " tidak ditemukan");

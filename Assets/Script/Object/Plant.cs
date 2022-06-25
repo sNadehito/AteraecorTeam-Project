@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Plant : Object
 {
-    private int water;
-    private int fertilizer;
-    private int plantGrowth; // plant stage
+    private int water = 0;
+    private int fertilizer = 0;
+    private int plantGrowth = 0; // plant stage
     [Header("Item interact with")]
     public string[] itemNeeded = new string[3];
     [Header("Plant Growth State")]
     // terdapat 5 pertumbuhan pada tanaman, membutuhkan 5 sprite untuk menunjukan setiap pertumbuhan.
-    public Sprite[] sprite = new Sprite[5];
+    public Sprite[] plantSprite = new Sprite[5];
     public int[] growthCountNeeded = new int[5]; // indikasi berapa banyak nutrisi yang dubutuhkan untuk sekali tumbuh
     public int growthCounter;
     [Header("Pest Event")]
@@ -23,6 +23,7 @@ public class Plant : Object
     /// </summary>
     public void Grown()
     {
+        Debug.Log("Growth; water : "+water+"; fertilizer : "+fertilizer);
         if(water > 0 && fertilizer > 0)
         {
             water--;
@@ -30,7 +31,7 @@ public class Plant : Object
             growthCounter++;
         }
 
-        if(growthCountNeeded[plantGrowth] >= growthCounter)
+        if(growthCountNeeded[plantGrowth] <= growthCounter)
         {
             // reset growth counter
             growthCounter = 0;
@@ -95,7 +96,8 @@ public class Plant : Object
             fertilizer++;
         else if (s == itemNeeded[2]) // "pesticide"
             isPested = false;
-        Debug.LogWarning("Nutrition Counter Error, Cannot find : " + s);
+        else
+            Debug.LogWarning("Nutrition Counter Error, Cannot find : " + s);
     }
 
     /// <summary>
@@ -120,6 +122,6 @@ public class Plant : Object
 
     private void ChangeSprite()
     {
-       
+        gameObject.GetComponent<SpriteRenderer>().sprite = plantSprite[plantGrowth];
     }
 }
