@@ -8,7 +8,7 @@ public class CameraFollowPlayer : MonoBehaviour
 
     public Vector3 camOffset;
 
-    float slerpFactor = 0.5f;
+    float slerpFactor = 1.0f;
     void Start()
     {
         camOffset = transform.position - playerTarget.transform.position;
@@ -25,6 +25,5 @@ public class CameraFollowPlayer : MonoBehaviour
         // transform.position = camNewPos;
         transform.position = Vector3.Slerp(transform.position, camNewPos, slerpFactor * Time.deltaTime);
 
-        transform.LookAt(playerTarget);
     }
 }
