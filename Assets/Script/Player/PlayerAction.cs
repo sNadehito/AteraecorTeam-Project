@@ -9,9 +9,9 @@ public class PlayerAction : MonoBehaviour
     [Header("Animator")]
     public Animator playerAnim;
 
-    void Update()
+    private void OnTriggerStay(Collider other)
     {
-        processInput();   
+        processInput();
     }
 
     void processInput()
