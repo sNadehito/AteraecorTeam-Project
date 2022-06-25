@@ -14,6 +14,12 @@ public class Object : MonoBehaviour
 
     [Header("Event Channel")]
     public VoidEventChannelSO _InteractionSO;
+
+    void Start()
+    {
+        inventory = FindObjectOfType<Inventory>();
+    }
+
     public virtual void Interact()
     {
         // Object do something
