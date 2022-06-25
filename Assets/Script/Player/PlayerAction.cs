@@ -6,6 +6,9 @@ public class PlayerAction : MonoBehaviour
 {
     [Header("Event")]
     public VoidEventChannelSO _voidEventChannelSO;
+    [Header("Animator")]
+    public Animator playerAnim;
+
     void Update()
     {
         processInput();   
@@ -15,8 +18,15 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("Space Pressed");
-            _voidEventChannelSO.RaiseEvent();
+            playerAnim.SetBool("isPlayerAct", true);
+            StartCoroutine(interactionDelay());
         }
+    }
+
+    IEnumerator interactionDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        playerAnim.SetBool("isPlayerAct", false);
+        _voidEventChannelSO.RaiseEvent();
     }
 }
