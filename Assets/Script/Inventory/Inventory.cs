@@ -61,9 +61,9 @@ public class Inventory : MonoBehaviour
     /// </returns>
     /// <param name="itemName"></param>
 
-    public bool RemoveItem(string itemName)
+    public bool RemoveItem()
     {
-        if(itemSlots.ItemName == itemName)
+        if(itemSlots.ItemName != null)
         {
             itemSlots.IsFull = false;
             itemSlots.ItemName = null;
@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
             GameObject.Destroy(itemSlots.Slot);
             return true;
         }
-        Debug.LogWarning("item dengan nama : " + itemSlots + " tidak ditemukan");
+        Debug.LogWarning("item dengan nama : " + itemSlots.ItemName + " tidak ditemukan");
         return false;
     }
 
@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
         // kalau itemSlot sudha terisi, maka ganti item slot dengan yang baru
         if(itemSlots.IsFull == true)
         {
-            RemoveItem(itemName);
+            RemoveItem();
         }
         itemSlots.Slot.GetComponent<Image>().sprite = sprite;
         itemSlots.ItemName = itemName;
