@@ -28,6 +28,7 @@ public class EventManager : MonoBehaviour
     private void Start()
     {
         _AudioChannel.RaiseEvent("Background Music");
+        _AudioChannel.RaiseEvent("Background Forrest Wind");
         DataBaseQueue();    
     }
 
