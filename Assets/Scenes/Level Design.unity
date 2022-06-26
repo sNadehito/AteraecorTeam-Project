@@ -1708,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f05ee1a86a7554429feea4353608d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SoundChannelSO: {fileID: 11400000, guid: 0cb1579396d6b71418046eeacd813fcf, type: 2}
+  _SoundChannelSO: {fileID: 11400000, guid: d9aa2479c48d21a478d332515fabd874, type: 2}
   sounds: []
   audioDataBase: {fileID: 11400000, guid: 72d34ab9c7cde364d81f44670fcd3a09, type: 2}
 --- !u!4 &415660484
@@ -1719,7 +1719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415660482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.37800002, z: 1.223}
+  m_LocalPosition: {x: -0.37, y: 1.685, z: -4.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1740,6 +1740,14 @@ PrefabInstance:
       propertyPath: _GlitchSO
       value: 
       objectReference: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
+    - target: {fileID: 3997804460400558501, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: _AudioChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d9aa2479c48d21a478d332515fabd874, type: 2}
+    - target: {fileID: 3997804460400558501, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: _GlitchSoundChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d9aa2479c48d21a478d332515fabd874, type: 2}
     - target: {fileID: 3997804460400558501, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
       propertyPath: digitalGlitchEffect
       value: 
@@ -2410,6 +2418,7 @@ MonoBehaviour:
   _GlitchChannel: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
   _PestChannel: {fileID: 11400000, guid: 985258abd039b8d4aa027f188028c620, type: 2}
   _CheckEventChennel: {fileID: 11400000, guid: 6f24d8a6e29bde34e95d3098b4b1e787, type: 2}
+  _AudioChannel: {fileID: 11400000, guid: d9aa2479c48d21a478d332515fabd874, type: 2}
 --- !u!4 &620666108
 Transform:
   m_ObjectHideFlags: 0
@@ -3827,6 +3836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _voidEventChannelSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _AudioChannel: {fileID: 11400000, guid: d9aa2479c48d21a478d332515fabd874, type: 2}
   playerAnim: {fileID: 1064807127}
 --- !u!95 &1064807127
 Animator:

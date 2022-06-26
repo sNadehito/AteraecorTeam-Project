@@ -42,8 +42,8 @@ public class Plant : Object
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
         inventory = FindObjectOfType<Inventory>();
-        plantGrowth = 4;
-        growthCounter = 4;
+        plantGrowth = 0;
+        growthCounter = 0;
     }
     /// <summary>
     /// Grown mengecek setiap player melakukan aksi apakah tenaman memiliki water dan fertilizer yang cukup.
