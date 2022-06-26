@@ -715,6 +715,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
   _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
+  playerNeed: {fileID: 1064807130}
   itemNeeded: Bucket
 --- !u!1 &521957587
 GameObject:
@@ -754,6 +755,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
   _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
+  playerNeed: {fileID: 1064807130}
   itemNeeded:
   - Bucket With Water
   - Fertilizer
@@ -1682,7 +1684,7 @@ MonoBehaviour:
   heightCam: 0
   groundObject: {fileID: 1659109280}
   leftLimit: -6
-  rightLimit: 2
+  rightLimit: 2.5
   topLimit: -1
   bottomLimit: -7.5
 --- !u!114 &963194230
@@ -1861,6 +1863,7 @@ GameObject:
   - component: {fileID: 1064807127}
   - component: {fileID: 1064807128}
   - component: {fileID: 1064807129}
+  - component: {fileID: 1064807130}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2011,6 +2014,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.682, y: 0.896, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1064807130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064807122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644c086d500b9234c89c215dad4934de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemNeededUI: {fileID: 0}
+  bucketNeededUI: {fileID: 0}
+  playerOffset: {x: 0, y: 0.6, z: 0}
+  well: {fileID: 486260090}
+  wellOffset: {x: 0, y: 0, z: 0}
+  plant: {fileID: 521957587}
+  plantOffset: {x: 0, y: 0, z: 0}
+  bucketPrefabUI: {fileID: 0}
+  fertilizerPrefabUI: {fileID: 3881127866730432278, guid: b2fbb50ee0c78c649964d3640bde37b5, type: 3}
+  pesticidePrefabUI: {fileID: 7554269432715916419, guid: 0b5c84e7cfa4236409633c1b3efac2a0, type: 3}
+  waterPrefabUI: {fileID: 4726171057965744023, guid: c0e4439abca069e4488200250a8214c3, type: 3}
 --- !u!1 &1150286909
 GameObject:
   m_ObjectHideFlags: 0
