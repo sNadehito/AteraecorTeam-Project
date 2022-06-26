@@ -21,6 +21,7 @@ public class Plant : Object
     public VoidEventChannelSO _CheckEventChannel;
     public VoidEventChannelSO _EndingChannel;
     [Header("Pest Event")]
+    public SpriteRenderer pest;
     public bool isPested = false;
 
     /// <summary>
@@ -90,6 +91,7 @@ public class Plant : Object
             {
                 IncreaseNutrition(itemname);
                 inventory.RemoveItem();
+                PestOff(); // matikan sprite pest
                 playerNeed.destroyItemUI();
             }
             else
@@ -194,6 +196,15 @@ public class Plant : Object
     private void ChangeSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = plantSprite[plantGrowth];
+    }
+
+    public void PestOn()
+    {
+        pest.enabled = true;
+    }
+    private void PestOff()
+    {
+        pest.enabled = false;
     }
 
     /// <summary>
