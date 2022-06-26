@@ -2044,9 +2044,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a81b52c883ef15c4b95482f51d4de43b, type: 3}
   - {fileID: 21300000, guid: f16c1ce4a42793c46abec0a084f6f541, type: 3}
   - {fileID: 21300000, guid: 7a97f566715800748921f62f861e1fac, type: 3}
-  growthCountNeeded: 0200000003000000040000000500000006000000
+  growthCountNeeded: 0200000003000000040000000500000005000000
   growthCounter: 0
   _CheckEventChannel: {fileID: 11400000, guid: 6f24d8a6e29bde34e95d3098b4b1e787, type: 2}
+  _EndingChannel: {fileID: 11400000, guid: c3ad54b4420273a43ab7bd2f89646b58, type: 2}
   isPested: 0
 --- !u!65 &521957589
 BoxCollider:

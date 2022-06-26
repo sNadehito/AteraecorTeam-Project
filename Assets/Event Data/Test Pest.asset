@@ -10,24 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 718e11c3a641bed40a3475d538c5ed91, type: 3}
-  m_Name: Pest Event
+  m_Name: Test Pest
   m_EditorClassIdentifier: 
   gameEvents:
-  - stage: 1
-    plantGrowth: 1
-    itemInventory: Bucket
-  - stage: 2
-    plantGrowth: 2
-    itemInventory: Bucket
-  - stage: 3
-    plantGrowth: 2
-    itemInventory: Bucket
-  - stage: 3
-    plantGrowth: 4
-    itemInventory: Bucket
-  - stage: 4
-    plantGrowth: 3
-    itemInventory: Bucket
   - stage: 4
     plantGrowth: 4
     itemInventory: Bucket
