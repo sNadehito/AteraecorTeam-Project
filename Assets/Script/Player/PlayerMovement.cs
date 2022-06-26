@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         processInput();
-
     }
     private void FixedUpdate()
     {
@@ -30,14 +29,26 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMovement.x = Input.GetAxisRaw("Horizontal");
         playerMovement.z = Input.GetAxisRaw("Vertical");
+        cancelAction();
 
         playerAnim.SetFloat("Horizontal", playerMovement.x);
         playerAnim.SetFloat("Vertical", playerMovement.z);
         playerAnim.SetFloat("Speed", playerMovement.sqrMagnitude);
     }
 
+    void cancelAction()
+    {
+        if (playerAnim.GetBool("isPlayerAct") == true && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
+        {
+            FindObjectOfType<PlayerAction>().stopDelay();
+            playerAnim.SetBool("isPlayerAct", false);
+        }
+    }
+
     void playerMoving()
     {
-        playerRb.MovePosition(playerRb.position + playerMovement * moveSpeed * Time.fixedDeltaTime);
+        Vector3 desiredPosition = playerMovement * moveSpeed * Time.fixedDeltaTime;
+        playerRb.MovePosition(playerRb.position + desiredPosition);
     }
+
 }

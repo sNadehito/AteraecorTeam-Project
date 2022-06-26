@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
+    public Sprite objectSprite;
+
     public Sprite itemSprite;
     public string itemName;
+    [SerializeField]
     protected Inventory inventory;
     /// <summary>
     /// Mengatur channel event scriptable objest
@@ -13,7 +16,15 @@ public class Object : MonoBehaviour
     /// </summary>
 
     [Header("Event Channel")]
-    public VoidEventChannelSO _InteractionSO;
+    public VoidEventChannelSO _InteractionEvent;
+    public VoidEventChannelSO _GlitchEvent;
+
+    void Start()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
+        inventory = FindObjectOfType<Inventory>();
+    }
+
     public virtual void Interact()
     {
         // Object do something
@@ -29,7 +40,12 @@ public class Object : MonoBehaviour
     {
         inventory.UpdateItem(itemSprite,itemName);
     }
-
+    
+    public virtual void Glitch()
+    {
+       /// glitch
+        
+    }
 
     /// <summary>
     /// Subcribe dan Unsubscribe channel
@@ -37,16 +53,16 @@ public class Object : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        _InteractionSO.onEventRaised += Interact; // subscribe channel
+        _InteractionEvent.onEventRaised += Interact; // subscribe channel
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _InteractionSO.onEventRaised -= Interact; // unsubcsribe channel
+        _InteractionEvent.onEventRaised -= Interact; // unsubcsribe channel
     }
 
     private void OnDestroy()
     {
-        _InteractionSO.onEventRaised -= Interact; // unsubscribe channel
+        _InteractionEvent.onEventRaised -= Interact; // unsubscribe channel
     }
 }

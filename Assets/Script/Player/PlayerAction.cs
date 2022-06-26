@@ -4,19 +4,43 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    bool canInteract = false;
+    Coroutine delayCoroutine;
     [Header("Event")]
     public VoidEventChannelSO _voidEventChannelSO;
-    void Update()
+    [Header("Animator")]
+    public Animator playerAnim;
+
+    private void OnTriggerEnter(Collider other)
     {
-        processInput();   
+        canInteract = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        canInteract = false;
+    }
+
+    private void Update()
+    {
+        processInput();
     }
 
     void processInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canInteract)
         {
-            //Debug.Log("Space Pressed");
-            _voidEventChannelSO.RaiseEvent();
+            playerAnim.SetBool("isPlayerAct", true);
+            delayCoroutine =  StartCoroutine(interactionDelay());
         }
+    }
+
+    public void stopDelay() => StopCoroutine(delayCoroutine);
+
+    IEnumerator interactionDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        playerAnim.SetBool("isPlayerAct", false);
+        _voidEventChannelSO.RaiseEvent();
     }
 }

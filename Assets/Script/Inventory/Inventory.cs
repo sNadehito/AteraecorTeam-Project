@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviour
     }
     // Struct untuk representasi slot di inventory
     public ItemSlots itemSlots;
+    public Sprite baseSprite;
 
     /// <summary>
     /// mengecek apakah kita memeiliki item dengan nama <paramref name="itemName"/>
@@ -68,7 +69,7 @@ public class Inventory : MonoBehaviour
             itemSlots.IsFull = false;
             itemSlots.ItemName = null;
             // Hapus UI dan game object pada itemSlot
-            GameObject.Destroy(itemSlots.Slot);
+            itemSlots.Slot.GetComponent<Image>().sprite = baseSprite;
             return true;
         }
         Debug.LogWarning("item dengan nama : " + itemSlots.ItemName + " tidak ditemukan");
