@@ -10,9 +10,11 @@ public class Building : Object
     public PlayerNeed playerNeed;
     
     public string itemNeeded;
-
+    [Header("Event Pest")]
+    public VoidEventChannelSO _PestEvent;
     public override void Interact()
     {
+        _PestEvent.RaiseEvent(); // memanggil event pest
         if (CheckItem())
         {
             MoveToInventory();

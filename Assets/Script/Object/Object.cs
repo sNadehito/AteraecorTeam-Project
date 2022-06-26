@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
-    [Header("Glitch Need")]
     public Sprite objectSprite;
-    public Sprite objectSpriteGlitch;
 
     public Sprite itemSprite;
     public string itemName;
@@ -47,23 +45,6 @@ public class Object : MonoBehaviour
     {
        /// glitch
         
-    }
-
-    protected IEnumerator Glitching()
-    {
-        var counter = 0;
-        while (true)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = objectSpriteGlitch;
-            yield return new WaitForSeconds(0.1f);
-            //gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
-            yield return new WaitForSeconds(0.1f);
-            counter++;
-            if (counter >= 5)
-                break;
-        }
-        gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
-        yield return null;
     }
 
     /// <summary>

@@ -6,37 +6,89 @@ public class EventManager : MonoBehaviour
 {
     [Header("Script Needed")]
     public Plant plant;
+    public Building well;
     public Inventory inventory;
-
+    [Header("Database")]
+    public EventScriptableObject pestEventData;
+    public EventScriptableObject glitchEventData;
+    public Queue<GameEvent> pestEventQueue = new Queue<GameEvent>();
+    public Queue<GameEvent> glitchEventQueue = new Queue<GameEvent>();
     [Header("Event Channel")]
     public VoidEventChannelSO _GlitchChannel;
+    public VoidEventChannelSO _PestChannel;
+    public VoidEventChannelSO _CheckEventChennel;
 
-    public void Update()
+    public void Awake()
     {
-        if(plant.PlantGrouwth >= 2)
-        {
-            switch ((plant.growthCounter, inventory.itemSlots.ItemName)) 
-            {
-                case (1, "Bucket With Water"):
-                    
-                case (3, "Fertilizer"):
+        _PestChannel.onEventRaised += CheckPestEvent;
+        _CheckEventChennel.onEventRaised += CheckGlitchEvent;
+    }
 
-                case (4, "Bucked"):
-                    Pested();
-                    break;
-            }          //yakin bakal ada bug, terus pested ... ?? gimana cara ngilanginnya      
+    private void Start()
+    {
+        DataBaseQueue();    
+    }
+
+    private void DataBaseQueue()
+    {
+        foreach (GameEvent p in pestEventData.gameEvents)
+        {
+            Debug.Log("Stage : " + p.stage + " Plant Growth : " + p.plantGrowth + " Item Name : " + p.itemInventory);
+            pestEventQueue.Enqueue(p);
+        }
+        foreach (GameEvent p in glitchEventData.gameEvents)
+        {
+            Debug.Log("Stage : " + p.stage + " Plant Growth : " + p.plantGrowth + " Item Name : " + p.itemInventory);
+            glitchEventQueue.Enqueue(p);
         }
     }
 
-    IEnumerator Glitch()
+    private void CheckPestEvent()
     {
-        _GlitchChannel.RaiseEvent();
-        yield return null;
+        Debug.Log("Check Event Pest");
+
+        foreach (GameEvent p in pestEventQueue)
+        {
+            if (plant.PlantGrowth == p.stage && 
+                plant.growthCounter == p.plantGrowth && 
+                inventory.itemSlots.ItemName == p.itemInventory)
+            {
+                pestEventQueue.Dequeue();
+                Pested();
+                break;
+            }
+                
+        }
+    }
+
+    private void CheckGlitchEvent()
+    {
+        Debug.Log("Check Event Glitch");
+
+        foreach (GameEvent p in glitchEventQueue)
+        {
+            if (plant.PlantGrowth == p.stage &&
+                plant.growthCounter == p.plantGrowth &&
+                inventory.itemSlots.ItemName == p.itemInventory)
+            {
+                glitchEventQueue.Dequeue();
+                _GlitchChannel.RaiseEvent();
+                break;
+            }
+
+        }
     }
 
     public void Pested()
     {
-        //plant.isPested = true;
+        Debug.Log("Pested");
+        plant.isPested = true;
         // tambahin info pested/ gambar tumbuhan kena hama
+    }
+
+    private void OnDestroy()
+    {
+        _PestChannel.onEventRaised -= CheckPestEvent;
+        _CheckEventChennel.onEventRaised -= CheckGlitchEvent;
     }
 }

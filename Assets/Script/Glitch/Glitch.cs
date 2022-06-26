@@ -24,7 +24,11 @@ public class Glitch : MonoBehaviour
     {
         digitalGlitchEffect.intensity = Random.Range(0.2f, 0.35f);
         yield return new WaitForSeconds(1.0f);
-        _GlitchSO.onEventRaised -= ScreenGlitch;
         digitalGlitchEffect.intensity = 0;
+    }
+
+    private void OnDestroy()
+    {
+        _GlitchSO.onEventRaised -= ScreenGlitch;
     }
 }

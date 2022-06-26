@@ -13,15 +13,19 @@ public class Plant : Object
     [Header("Plant Growth State")]
     // terdapat 5 pertumbuhan pada tanaman, membutuhkan 5 sprite untuk menunjukan setiap pertumbuhan.
     public Sprite[] plantSprite = new Sprite[5];
+    [Header("Glitch Need")]
+    public Sprite[] plantSpriteGlitch = new Sprite[5];
     public int[] growthCountNeeded = new int[5]; // indikasi berapa banyak nutrisi yang dubutuhkan untuk sekali tumbuh
     public int growthCounter;
+    [Header("Event Channel")]
+    public VoidEventChannelSO _CheckEventChannel;
     [Header("Pest Event")]
-    private bool isPested = false;
+    public bool isPested = false;
 
     /// <summary>
     /// 
     /// </summary>
-    public int PlantGrouwth
+    public int PlantGrowth
     {
         get { return plantGrowth; }
         set { plantGrowth = value; }
@@ -51,7 +55,7 @@ public class Plant : Object
             // reset growth counter
             growthCounter = 0;
             // level up plant
-            PlantGrouwth++;
+            PlantGrowth++;
             // PlantGrouwht()
             ChangePlantState(); // naikan stage dari plant
         }
@@ -59,7 +63,7 @@ public class Plant : Object
 
     public override void Interact()
     {
-        GlitchCheck(); // untuk cek animasi glitch
+        _CheckEventChannel.RaiseEvent();
         // bila sedang terkena hama, maka pemain tidak dapat berinteraksi dengan tanaman
         if (isPested)
         {
@@ -94,33 +98,26 @@ public class Plant : Object
         Grown();
             
     }
-
-    private void Start()
-    {
-        plantGrowth = 3;
-        growthCounter = 2;
-        inventory = FindObjectOfType<Inventory>();
-    }
-
-
-    private void GlitchCheck()
-    {
-        switch ((PlantGrouwth, growthCounter, inventory.itemSlots.ItemName))
-        {
-            case (3, 2, "Bucket With Water"):
-
-            case (4, 4, "Fertilize"):
-
-            case (5, 5, "Bucket With Water"):
-
-            case (5, 5, "Fertilize"):
-                _GlitchEvent.RaiseEvent();
-                break;
-        }
-    }
     public override void Glitch()
     {
         StartCoroutine(Glitching());
+    }
+
+    IEnumerator Glitching()
+    {
+        var counter = 0;
+        while (true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = plantSpriteGlitch[plantGrowth];
+            yield return new WaitForSeconds(0.1f);
+            //gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
+            yield return new WaitForSeconds(0.1f);
+            counter++;
+            if (counter >= 5)
+                break;
+        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = plantSprite[plantGrowth];
+        yield return null;
     }
 
     public bool CheckItem()

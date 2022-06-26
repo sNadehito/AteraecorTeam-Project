@@ -10,14 +10,36 @@ public class EnvironmentGlitch : MonoBehaviour
     public Sprite treeNormal;
     public Sprite treeGlitch;
     [Header("List Of Object")]
-    public List<SpriteRenderer> grasses;
-    public List<SpriteRenderer> trees;
+    public GameObject tree;
+    public GameObject grass;
+    public List<SpriteRenderer> grasses = new List<SpriteRenderer>();
+    public List<SpriteRenderer> trees = new List<SpriteRenderer>();
     [Header("Event Channel")]
     public VoidEventChannelSO _GlitchChannel;
 
     private void Awake()
     {
         _GlitchChannel.onEventRaised += Glitch;
+    }
+
+    private void Start()
+    {
+        grasses = new List<SpriteRenderer>();
+        trees = new List<SpriteRenderer>();
+        ListEnvironment();
+    }
+
+    private void ListEnvironment()
+    {
+        foreach (Transform s in tree.transform)
+        {
+            Debug.Log("add tree");
+            trees.Add(s.GetComponent<SpriteRenderer>());
+        }
+        foreach (Transform s in grass.transform)
+        {
+            grasses.Add(s.GetComponent<SpriteRenderer>());
+        }
     }
 
     public void Glitch()
