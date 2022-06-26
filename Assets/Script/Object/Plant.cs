@@ -19,6 +19,7 @@ public class Plant : Object
     public int growthCounter;
     [Header("Event Channel")]
     public VoidEventChannelSO _CheckEventChannel;
+    public VoidEventChannelSO _EndingChannel;
     [Header("Pest Event")]
     public bool isPested = false;
 
@@ -35,6 +36,15 @@ public class Plant : Object
     {
         _GlitchEvent.onEventRaised += Glitch;
     }
+
+    // BUAT TEST APUS NANTI ///////////////////////////////////////////////////
+    private void Start()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
+        inventory = FindObjectOfType<Inventory>();
+        plantGrowth = 4;
+        growthCounter = 4;
+    }
     /// <summary>
     /// Grown mengecek setiap player melakukan aksi apakah tenaman memiliki water dan fertilizer yang cukup.
     /// setiap player melakukan aksi growthcounter akan bertambah dengan mengambil value dari water dan fertilizer.
@@ -48,6 +58,14 @@ public class Plant : Object
             water--;
             fertilizer--;
             growthCounter++;
+        }
+
+        if(plantGrowth >= 4 && growthCounter >= 5)
+        {
+            // Ending
+            Debug.Log("GAME OVER");
+            _EndingChannel.RaiseEvent();
+            return;
         }
 
         if(growthCountNeeded[plantGrowth] <= growthCounter)
