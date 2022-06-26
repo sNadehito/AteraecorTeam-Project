@@ -31,7 +31,6 @@ public class Object : MonoBehaviour
     {
         // Object do something
         MoveToInventory();
-        Glitch();
     }
     /// <summary>
     /// Memindahkan object ke inventory

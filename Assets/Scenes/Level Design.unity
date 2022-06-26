@@ -1024,6 +1024,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 1064807125}
   camOffset: {x: 0, y: 0, z: 0}
+  heightCam: 0
+  groundObject: {fileID: 1659109280}
+  leftLimit: -6
+  rightLimit: 2
+  topLimit: -1
+  bottomLimit: -7.5
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
