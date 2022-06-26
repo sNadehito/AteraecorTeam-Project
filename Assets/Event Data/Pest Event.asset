@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pest Event
   m_EditorClassIdentifier: 
   gameEvents:
-  - stage: 2
-    plantGrowth: 2
+  - stage: 0
+    plantGrowth: 0
     itemInventory: Bucket
   - stage: 2
     plantGrowth: 4
