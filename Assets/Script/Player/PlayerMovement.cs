@@ -18,7 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        processInput();
+        if (!PauseMenu.GameIsPaused)
+        {
+            processInput();
+        }
     }
     private void FixedUpdate()
     {
