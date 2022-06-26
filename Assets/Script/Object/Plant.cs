@@ -69,10 +69,17 @@ public class Plant : Object
         {
             var itemname = inventory.itemSlots.ItemName;
             if (itemname == itemNeeded[2])
+            {
                 IncreaseNutrition(itemname);
-            // beritahu pemain bawha mereka membutuhkan pesticide
-            playerNeed.showObjectNeeded("Pesticide");
-            Debug.Log("There is pest on the plant!!, Must get rid the pest first!!");
+                inventory.RemoveItem();
+                playerNeed.destroyItemUI();
+            }
+            else
+            {
+                // beritahu pemain bawha mereka membutuhkan pesticide
+                playerNeed.showObjectNeeded("Pesticide");
+                Debug.Log("There is pest on the plant!!, Must get rid the pest first!!");
+            }
         }
         else if (CheckItem())
         {

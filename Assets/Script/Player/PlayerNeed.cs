@@ -27,7 +27,10 @@ public class PlayerNeed : MonoBehaviour
         if (bucketNeededUI)
         {
             bucketNeededUI.transform.position = transform.position + playerOffset;
-            itemNeededUI.SetActive(false);
+            if (itemNeededUI)
+            {
+                itemNeededUI.SetActive(false);
+            }            
         }
         if (itemNeededUI)
         {
@@ -37,21 +40,25 @@ public class PlayerNeed : MonoBehaviour
 
     public void showObjectNeeded(string objectNeed)
     {
-        if (!itemNeededUI)
+        if (itemNeededUI)
         {
-            if (objectNeed == "Fertilizer")
-            {
-                itemNeededUI = Instantiate(fertilizerPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
-            }
-            else if (objectNeed == "Pesticide")
-            {
-                itemNeededUI = Instantiate(pesticidePrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
-            }
-            else if (objectNeed == "Water")
-            {
-                itemNeededUI = Instantiate(waterPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
-            }
+            Destroy(itemNeededUI);
         }
+        //if (!itemNeededUI)
+        //{
+        if (objectNeed == "Fertilizer")
+        {
+            itemNeededUI = Instantiate(fertilizerPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+        }
+        else if (objectNeed == "Pesticide")
+        {
+            itemNeededUI = Instantiate(pesticidePrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+        }
+        else if (objectNeed == "Water")
+        {
+            itemNeededUI = Instantiate(waterPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+        }
+        //}
         if (!bucketNeededUI)
         {
             if (objectNeed == "Bucket")
@@ -74,7 +81,10 @@ public class PlayerNeed : MonoBehaviour
         if (bucketNeededUI)
         {
             Destroy(bucketNeededUI);
-            itemNeededUI.SetActive(true);
+            if (itemNeededUI)
+            {
+                itemNeededUI.SetActive(true);
+            }
         }
     }
 }
