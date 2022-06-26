@@ -13,9 +13,18 @@ public class EventManager : MonoBehaviour
 
     public void Update()
     {
-        if(plant.PlantGrouwth == 3 && plant.growthCounter == 2 && inventory.HasItem("Bucket With Water"))
+        if(plant.PlantGrouwth >= 2)
         {
-            StartCoroutine(Glitch());
+            switch ((plant.growthCounter, inventory.itemSlots.ItemName)) 
+            {
+                case (1, "Bucket With Water"):
+                    
+                case (3, "Fertilizer"):
+
+                case (4, "Bucked"):
+                    Pested();
+                    break;
+            }          //yakin bakal ada bug, terus pested ... ?? gimana cara ngilanginnya      
         }
     }
 
@@ -23,5 +32,11 @@ public class EventManager : MonoBehaviour
     {
         _GlitchChannel.RaiseEvent();
         yield return null;
+    }
+
+    public void Pested()
+    {
+        //plant.isPested = true;
+        // tambahin info pested/ gambar tumbuhan kena hama
     }
 }
