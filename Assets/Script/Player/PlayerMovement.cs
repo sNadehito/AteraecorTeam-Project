@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         processInput();
-
     }
     private void FixedUpdate()
     {
@@ -38,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMoving()
     {
-        playerRb.MovePosition(playerRb.position + playerMovement * moveSpeed * Time.fixedDeltaTime);
+        Vector3 desiredPosition = playerMovement * moveSpeed * Time.fixedDeltaTime;
+        playerRb.MovePosition(playerRb.position + desiredPosition);
     }
+
 }
