@@ -8,6 +8,7 @@ public class PlayerAction : MonoBehaviour
     Coroutine delayCoroutine;
     [Header("Event")]
     public VoidEventChannelSO _voidEventChannelSO;
+    public StringEventChannelSO _AudioChannel;
     [Header("Animator")]
     public Animator playerAnim;
 
@@ -39,6 +40,7 @@ public class PlayerAction : MonoBehaviour
 
     IEnumerator interactionDelay()
     {
+        _AudioChannel.RaiseEvent("Player Action");
         yield return new WaitForSeconds(1.0f);
         playerAnim.SetBool("isPlayerAct", false);
         _voidEventChannelSO.RaiseEvent();
