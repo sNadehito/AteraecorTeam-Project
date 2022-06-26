@@ -9,7 +9,7 @@ public class PlayerAction : MonoBehaviour
     [Header("Animator")]
     public Animator playerAnim;
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
         processInput();
     }
