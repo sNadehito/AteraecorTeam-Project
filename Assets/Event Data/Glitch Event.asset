@@ -23,7 +23,7 @@ MonoBehaviour:
     plantGrowth: 1
     itemInventory: Bucket With Water
   - stage: 3
-    plantGrowth: 1
+    plantGrowth: 3
     itemInventory: Bucket With Water
   - stage: 3
     plantGrowth: 4
@@ -34,6 +34,9 @@ MonoBehaviour:
   - stage: 4
     plantGrowth: 3
     itemInventory: Bucket With Water
+  - stage: 4
+    plantGrowth: 4
+    itemInventory: Fertilizer
   - stage: 4
     plantGrowth: 5
     itemInventory: Bucket With Water
