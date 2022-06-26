@@ -1371,7 +1371,8 @@ Transform:
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 2.66, y: 0.98, z: 2.24}
   m_LocalScale: {x: 0.4419126, y: 0.45301348, z: 1.8228}
-  m_Children: []
+  m_Children:
+  - {fileID: 382907280}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
@@ -1514,6 +1515,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369938999}
   m_CullTransparentMesh: 1
+--- !u!1 &382907279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382907280}
+  - component: {fileID: 382907281}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &382907280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382907279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.11, y: -0.428, z: 0.023}
+  m_LocalScale: {x: 0.265, y: 0.265, z: 0.265}
+  m_Children: []
+  m_Father: {fileID: 300042552}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &382907281
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382907279}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: dd6aed7cad8d0f04a82c37f81a2fb5b8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &408033809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,12 +2039,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b015b4d793d205409bb4b7292893a91, type: 3}
   - {fileID: 21300000, guid: 18f3466cd12a14940b0ee1bb054e3ff1, type: 3}
   plantSpriteGlitch:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  growthCountNeeded: 0200000004000000050000000600000007000000
+  - {fileID: 21300000, guid: 4ef4dd50fb2b7bf438674081670a16b4, type: 3}
+  - {fileID: 21300000, guid: e25e48da9d4baad4497fcbf3d7e6df30, type: 3}
+  - {fileID: 21300000, guid: a81b52c883ef15c4b95482f51d4de43b, type: 3}
+  - {fileID: 21300000, guid: f16c1ce4a42793c46abec0a084f6f541, type: 3}
+  - {fileID: 21300000, guid: 7a97f566715800748921f62f861e1fac, type: 3}
+  growthCountNeeded: 0200000003000000040000000500000006000000
   growthCounter: 0
   _CheckEventChannel: {fileID: 11400000, guid: 6f24d8a6e29bde34e95d3098b4b1e787, type: 2}
   isPested: 0
@@ -3568,7 +3651,7 @@ PrefabInstance:
     - target: {fileID: 484857516016155633, guid: 35ac86166026e4f46bfab649cbc986e4, type: 3}
       propertyPath: baseSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 18ede0ba0e7860e4d900269a088e6b42, type: 3}
+      objectReference: {fileID: 21300000, guid: 7bf199bbb28e4eb4d974d5a6391f4282, type: 3}
     - target: {fileID: 484857516016155633, guid: 35ac86166026e4f46bfab649cbc986e4, type: 3}
       propertyPath: itemSlots.slot
       value: 
@@ -6291,14 +6374,6 @@ PrefabInstance:
     - target: {fileID: 766747738523410621, guid: 2f86dc7d7d23b374f9da6b3e6fe855b0, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 766747738523410625, guid: 2f86dc7d7d23b374f9da6b3e6fe855b0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493372888221990735, guid: 2f86dc7d7d23b374f9da6b3e6fe855b0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f86dc7d7d23b374f9da6b3e6fe855b0, type: 3}
