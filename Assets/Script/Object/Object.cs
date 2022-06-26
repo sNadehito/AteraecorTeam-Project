@@ -10,6 +10,7 @@ public class Object : MonoBehaviour
 
     public Sprite itemSprite;
     public string itemName;
+    [SerializeField]
     protected Inventory inventory;
     /// <summary>
     /// Mengatur channel event scriptable objest
@@ -17,7 +18,8 @@ public class Object : MonoBehaviour
     /// </summary>
 
     [Header("Event Channel")]
-    public VoidEventChannelSO _InteractionSO;
+    public VoidEventChannelSO _InteractionEvent;
+    public VoidEventChannelSO _GlitchEvent;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class Object : MonoBehaviour
     {
         // Object do something
         MoveToInventory();
+        Glitch();
     }
     /// <summary>
     /// Memindahkan object ke inventory
@@ -40,7 +43,29 @@ public class Object : MonoBehaviour
     {
         inventory.UpdateItem(itemSprite,itemName);
     }
+    
+    public virtual void Glitch()
+    {
+       /// glitch
+        
+    }
 
+    protected IEnumerator Glitching()
+    {
+        var counter = 0;
+        while (true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = objectSpriteGlitch;
+            yield return new WaitForSeconds(0.1f);
+            //gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
+            yield return new WaitForSeconds(0.1f);
+            counter++;
+            if (counter >= 5)
+                break;
+        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = objectSprite;
+        yield return null;
+    }
 
     /// <summary>
     /// Subcribe dan Unsubscribe channel
@@ -48,16 +73,16 @@ public class Object : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        _InteractionSO.onEventRaised += Interact; // subscribe channel
+        _InteractionEvent.onEventRaised += Interact; // subscribe channel
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _InteractionSO.onEventRaised -= Interact; // unsubcsribe channel
+        _InteractionEvent.onEventRaised -= Interact; // unsubcsribe channel
     }
 
     private void OnDestroy()
     {
-        _InteractionSO.onEventRaised -= Interact; // unsubscribe channel
+        _InteractionEvent.onEventRaised -= Interact; // unsubscribe channel
     }
 }

@@ -10,7 +10,7 @@ public class Glitch : MonoBehaviour
     [Header("Event")]
     public VoidEventChannelSO _GlitchSO;
 
-    private void Update()
+    private void Start()
     {
         _GlitchSO.onEventRaised += ScreenGlitch;
     }

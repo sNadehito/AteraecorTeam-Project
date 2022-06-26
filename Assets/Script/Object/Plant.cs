@@ -16,6 +16,20 @@ public class Plant : Object
     public int growthCounter;
     [Header("Pest Event")]
     private bool isPested = false;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int PlantGrouwth
+    {
+        get { return plantGrowth; }
+        set { plantGrowth = value; }
+    }
+
+    private void Awake()
+    {
+        _GlitchEvent.onEventRaised += Glitch;
+    }
     /// <summary>
     /// Grown mengecek setiap player melakukan aksi apakah tenaman memiliki water dan fertilizer yang cukup.
     /// setiap player melakukan aksi growthcounter akan bertambah dengan mengambil value dari water dan fertilizer.
@@ -36,13 +50,15 @@ public class Plant : Object
             // reset growth counter
             growthCounter = 0;
             // level up plant
-            plantGrowth++;
+            PlantGrouwth++;
+            // PlantGrouwht()
             ChangePlantState(); // naikan stage dari plant
         }
     }
 
     public override void Interact()
     {
+        GlitchCheck(); // untuk cek animasi glitch
         // bila sedang terkena hama, maka pemain tidak dapat berinteraksi dengan tanaman
         if (isPested)
         {
@@ -72,6 +88,34 @@ public class Plant : Object
         // lakukan cek pada pertumbuhan tanaman
         Grown();
             
+    }
+
+    private void Start()
+    {
+        plantGrowth = 3;
+        growthCounter = 2;
+        inventory = FindObjectOfType<Inventory>();
+    }
+
+
+    private void GlitchCheck()
+    {
+        switch ((PlantGrouwth, growthCounter, inventory.itemSlots.ItemName))
+        {
+            case (3, 2, "Bucket With Water"):
+
+            case (4, 4, "Fertilize"):
+
+            case (5, 5, "Bucket With Water"):
+
+            case (5, 5, "Fertilize"):
+                _GlitchEvent.RaiseEvent();
+                break;
+        }
+    }
+    public override void Glitch()
+    {
+        StartCoroutine(Glitching());
     }
 
     public bool CheckItem()
@@ -124,4 +168,15 @@ public class Plant : Object
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = plantSprite[plantGrowth];
     }
+
+    /// <summary>
+    /// Subcribe dan Unsubscribe channel
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnDestroy()
+    {
+        _GlitchEvent.onEventRaised -= Glitch;
+        _InteractionEvent.onEventRaised -= Interact; // unsubscribe channel
+    }
+
 }
