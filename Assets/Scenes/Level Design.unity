@@ -171,7 +171,9 @@ MonoBehaviour:
   objectSpriteGlitch: {fileID: 0}
   itemSprite: {fileID: 21300000, guid: 05994713da5473e42a42551dc0ba46a3, type: 3}
   itemName: Pecticide
-  _InteractionSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  inventory: {fileID: 0}
+  _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
 --- !u!212 &300042551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -288,6 +290,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &456354861
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3997804460400558500, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_Name
+      value: GlitchEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558501, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: _GlitchSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
+    - target: {fileID: 3997804460400558501, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: digitalGlitchEffect
+      value: 
+      objectReference: {fileID: 963194230}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3976557
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2116708
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5839288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997804460400558506, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8ef4aa73bc38f8438a73c05898339b8, type: 3}
 --- !u!1 &486260090
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +468,9 @@ MonoBehaviour:
   objectSpriteGlitch: {fileID: 0}
   itemSprite: {fileID: 21300000, guid: 4c745b761de27f24ca0fb48e5179e537, type: 3}
   itemName: Bucket With Water
-  _InteractionSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  inventory: {fileID: 0}
+  _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
   itemNeeded: Bucket
 --- !u!1 &521957587
 GameObject:
@@ -438,7 +507,9 @@ MonoBehaviour:
   objectSpriteGlitch: {fileID: 0}
   itemSprite: {fileID: 0}
   itemName: 
-  _InteractionSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  inventory: {fileID: 0}
+  _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
   itemNeeded:
   - Bucket With Water
   - Fertilizer
@@ -564,7 +635,9 @@ MonoBehaviour:
   objectSpriteGlitch: {fileID: 0}
   itemSprite: {fileID: 21300000, guid: d79c057180f8b5d46939ab18669aef61, type: 3}
   itemName: Bucket
-  _InteractionSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  inventory: {fileID: 0}
+  _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
 --- !u!65 &688786755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -784,7 +857,9 @@ MonoBehaviour:
   objectSpriteGlitch: {fileID: 0}
   itemSprite: {fileID: 21300000, guid: cb084ba172d689044b29e32bc8a3726a, type: 3}
   itemName: Fertilizer
-  _InteractionSO: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  inventory: {fileID: 0}
+  _InteractionEvent: {fileID: 11400000, guid: e087d71db147d9e44868384157c7a333, type: 2}
+  _GlitchEvent: {fileID: 11400000, guid: ca37f97625213aa4586079ea6ba6f365, type: 2}
 --- !u!212 &731676937
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -862,6 +937,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -948,6 +1024,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 1064807125}
   camOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3a070408aa941ab83ae10be1708848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensity: 0
+  _shader: {fileID: 4800000, guid: ba40dc630e1d9417cb9ea22586ece1e1, type: 3}
 --- !u!1001 &1015570237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1284,7 +1374,6 @@ GameObject:
   - component: {fileID: 1659109285}
   - component: {fileID: 1659109284}
   - component: {fileID: 1659109283}
-  - component: {fileID: 1659109282}
   - component: {fileID: 1659109281}
   m_Layer: 0
   m_Name: Ground
@@ -1309,19 +1398,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &1659109282
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659109280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1659109283
 MeshRenderer:
   m_ObjectHideFlags: 0
