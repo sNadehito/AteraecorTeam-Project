@@ -7,16 +7,23 @@ public class Building : Object
     /// <summary>
     /// Building merukpakan obect diamana harus mencek apakah item yang dibutuhkan untuk melakukan interaction ada
     /// </summary>
-
+    public PlayerNeed playerNeed;
+    
     public string itemNeeded;
 
     public override void Interact()
     {
         if (CheckItem())
+        {
             MoveToInventory();
+            playerNeed.destroyBucketUI();
+        }
         else
+        {
             Debug.Log("Player Dont Have Item Needed");
-        // beritahu pemain item apa yang dibutuhkan
+            playerNeed.showObjectNeeded("Bucket");
+            // beritahu pemain item apa yang dibutuhkan
+        }
     }
     public bool CheckItem()
     {

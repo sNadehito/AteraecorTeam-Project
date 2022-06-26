@@ -7,6 +7,7 @@ public class Plant : Object
     private int water = 0;
     private int fertilizer = 0;
     private int plantGrowth = 0; // plant stage
+    public PlayerNeed playerNeed;
     [Header("Item interact with")]
     public string[] itemNeeded = new string[3];
     [Header("Plant Growth State")]
@@ -66,22 +67,26 @@ public class Plant : Object
             if (itemname == itemNeeded[2])
                 IncreaseNutrition(itemname);
             // beritahu pemain bawha mereka membutuhkan pesticide
+            playerNeed.showObjectNeeded("Pesticide");
             Debug.Log("There is pest on the plant!!, Must get rid the pest first!!");
         }
         else if (CheckItem())
         {
             IncreaseNutrition(inventory.itemSlots.ItemName);
             inventory.RemoveItem();
+            playerNeed.destroyItemUI();
         }
         else
         {
             // beritahu pemain apa yang pemain butuhkan
             if(water > fertilizer)
             {
+                playerNeed.showObjectNeeded("Fertilizer");
                 Debug.Log("Neeed Fertilizer!!");
             }
             else
             {
+                playerNeed.showObjectNeeded("Water");
                 Debug.Log("Need Water");
             }
         }
