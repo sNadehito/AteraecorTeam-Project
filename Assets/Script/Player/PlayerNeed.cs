@@ -57,11 +57,17 @@ public class PlayerNeed : MonoBehaviour
 
     public void destroyItemUI()
     {
-        Destroy(itemNeededUI);
+        if (itemNeededUI)
+        {
+            Destroy(itemNeededUI);
+        }
     }
     public void destroyBucketUI()
     {
-        Destroy(bucketNeededUI);
-        itemNeededUI.SetActive(true);
+        if (bucketNeededUI)
+        {
+            Destroy(bucketNeededUI);
+            itemNeededUI.SetActive(true);
+        }
     }
 }
