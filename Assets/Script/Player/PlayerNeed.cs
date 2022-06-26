@@ -37,22 +37,29 @@ public class PlayerNeed : MonoBehaviour
 
     public void showObjectNeeded(string objectNeed)
     {
-        if (objectNeed == "Fertilizer")
+        if (!itemNeededUI)
         {
-            itemNeededUI = Instantiate(fertilizerPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+            if (objectNeed == "Fertilizer")
+            {
+                itemNeededUI = Instantiate(fertilizerPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+            }
+            else if (objectNeed == "Pesticide")
+            {
+                itemNeededUI = Instantiate(pesticidePrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+            }
+            else if (objectNeed == "Water")
+            {
+                itemNeededUI = Instantiate(waterPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+            }
         }
-        else if (objectNeed == "Pesticide")
+        if (!bucketNeededUI)
         {
-            itemNeededUI = Instantiate(pesticidePrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
+            if (objectNeed == "Bucket")
+            {
+                bucketNeededUI = Instantiate(bucketPrefabUI, well.transform.position + wellOffset, Quaternion.identity);
+            }
         }
-        else if (objectNeed == "Water")
-        {
-            itemNeededUI = Instantiate(waterPrefabUI, plant.transform.position + plantOffset, Quaternion.identity);
-        }
-        else if (objectNeed == "Bucket")
-        {
-            bucketNeededUI = Instantiate(bucketPrefabUI, well.transform.position + wellOffset, Quaternion.identity);
-        }
+        
     }
 
     public void destroyItemUI()
