@@ -85,6 +85,7 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("Pested");
         plant.isPested = true;
+        plant.PestOn(); // nyalain sprite pest
         // tambahin info pested/ gambar tumbuhan kena hama
     }
 
