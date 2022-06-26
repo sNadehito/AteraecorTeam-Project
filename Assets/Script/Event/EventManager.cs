@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
     public VoidEventChannelSO _GlitchChannel;
     public VoidEventChannelSO _PestChannel;
     public VoidEventChannelSO _CheckEventChennel;
+    public StringEventChannelSO _AudioChannel;
 
     public void Awake()
     {
@@ -26,6 +27,8 @@ public class EventManager : MonoBehaviour
 
     private void Start()
     {
+        _AudioChannel.RaiseEvent("Background Music");
+        _AudioChannel.RaiseEvent("Background Forrest Wind");
         DataBaseQueue();    
     }
 
@@ -83,6 +86,7 @@ public class EventManager : MonoBehaviour
     {
         Debug.Log("Pested");
         plant.isPested = true;
+        plant.PestOn(); // nyalain sprite pest
         // tambahin info pested/ gambar tumbuhan kena hama
     }
 

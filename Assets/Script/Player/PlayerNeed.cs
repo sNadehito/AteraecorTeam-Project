@@ -40,7 +40,7 @@ public class PlayerNeed : MonoBehaviour
 
     public void showObjectNeeded(string objectNeed)
     {
-        if (itemNeededUI)
+        if (itemNeededUI && objectNeed != "Bucket")
         {
             Destroy(itemNeededUI);
         }

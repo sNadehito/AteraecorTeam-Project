@@ -9,6 +9,7 @@ public class Glitch : MonoBehaviour
     public DigitalGlitch digitalGlitchEffect;
     [Header("Event")]
     public VoidEventChannelSO _GlitchSO;
+    public StringEventChannelSO _AudioChannel;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Glitch : MonoBehaviour
 
     void ScreenGlitch()
     {
+        _AudioChannel.RaiseEvent("Glitch");
         StartCoroutine(screenGlitching());
     }
 

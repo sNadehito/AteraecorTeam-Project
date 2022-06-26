@@ -13,9 +13,27 @@ MonoBehaviour:
   m_Name: SFX Data Base
   m_EditorClassIdentifier: 
   lineSound:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Glitch
+    clip: {fileID: 8300000, guid: 98cfb4edb7c8f4d4dab09dc35a61f16f, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Player Action
+    clip: {fileID: 8300000, guid: bd61c79629b98634688d4b5fa928f270, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Background Music
+    clip: {fileID: 8300000, guid: f3e871a781055284d8daf8c606ac8d9c, type: 3}
+    volume: 0.161
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Background Forrest Wind
+    clip: {fileID: 8300000, guid: a2351a19bdc9d644f9a115f6f875a73d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
