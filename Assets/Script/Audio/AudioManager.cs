@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 {
     [Header("Event")]
     public StringEventChannelSO _SoundChannelSO;
+    public StringEventChannelSO _SoundStopChannel;
     [Header("List of sounds")]
     public List<Sound> sounds = new List<Sound>();
     public AudioDataBaseScriptabelObject audioDataBase;
@@ -17,6 +18,7 @@ public class AudioManager : MonoBehaviour
     {
         //sub to sfx
         _SoundChannelSO.onEventRaised += PlayAudio;
+        _SoundStopChannel.onEventRaised += StopAudio;
 
         DontDestroyOnLoad(gameObject);
         // Add line spell Sound
@@ -46,8 +48,19 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
         Debug.Log("sound played : " + s.name);
     }
+    public void StopAudio(string name)
+    {
+        Sound s = sounds.Find(sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+        }
+        s.source.Stop();
+        Debug.Log("sound stoped : " + s.name);
+    }
     private void OnDestroy()
     {
         _SoundChannelSO.onEventRaised -= PlayAudio;
+        _SoundStopChannel.onEventRaised += StopAudio;
     }
 }

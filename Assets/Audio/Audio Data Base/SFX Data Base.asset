@@ -37,3 +37,9 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Background Intro
+    clip: {fileID: 8300000, guid: 4303909751465854abb90335e373ed2f, type: 3}
+    volume: 0.175
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
