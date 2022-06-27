@@ -22,13 +22,14 @@ public class FrameEnding : MonoBehaviour
     void endFrame()
     {
         //endingFrameObject.GetComponent<GameObject>().SetActive(true);
-        endingFrameImage.enabled = true;
         StartCoroutine(ChangeEndFrame());
         
     }
 
     IEnumerator ChangeEndFrame()
     {
+        yield return new WaitForSeconds(7.75f);
+        endingFrameImage.enabled = true;
         // 1
         yield return new WaitForSeconds(0.5f);
         endingFrameObject.GetComponent<Image>().sprite = endingFrameSprite[++frameNow];
