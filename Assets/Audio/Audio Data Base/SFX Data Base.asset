@@ -27,8 +27,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Background Music
     clip: {fileID: 8300000, guid: f3e871a781055284d8daf8c606ac8d9c, type: 3}
-    volume: 0.161
-    pitch: 1
+    volume: 0.15
+    pitch: 0.8
     loop: 1
     source: {fileID: 0}
   - name: Background Forrest Wind
