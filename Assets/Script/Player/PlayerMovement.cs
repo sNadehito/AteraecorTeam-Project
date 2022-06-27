@@ -8,8 +8,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody playerRb;
     public Animator playerAnim;
+    public bool canPlayerMove = true;
 
     Vector3 playerMovement;
+
+    [Header("Event")]
+    public VoidEventChannelSO endingEventChannelSO;
+
+    void Awake()
+    {
+        endingEventChannelSO.onEventRaised += playerCantMove;
+    }
 
     void Start()
     {
@@ -18,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!PauseMenu.GameIsPaused)
+        if (!PauseMenu.GameIsPaused && canPlayerMove)
         {
             processInput();
         }
@@ -48,10 +57,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void playerCantMove()
+    {
+        canPlayerMove = false;
+    }
+
     void playerMoving()
     {
         Vector3 desiredPosition = playerMovement * moveSpeed * Time.fixedDeltaTime;
         playerRb.MovePosition(playerRb.position + desiredPosition);
     }
-
+    private void OnDestroy()
+    {
+        endingEventChannelSO.onEventRaised -= playerCantMove;
+    }
 }

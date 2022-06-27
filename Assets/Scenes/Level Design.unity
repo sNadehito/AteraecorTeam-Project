@@ -4011,6 +4011,8 @@ MonoBehaviour:
   moveSpeed: 1
   playerRb: {fileID: 1064807123}
   playerAnim: {fileID: 1064807127}
+  canPlayerMove: 1
+  endingEventChannelSO: {fileID: 11400000, guid: c3ad54b4420273a43ab7bd2f89646b58, type: 2}
 --- !u!4 &1064807125
 Transform:
   m_ObjectHideFlags: 0
