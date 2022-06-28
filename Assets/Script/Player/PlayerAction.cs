@@ -31,8 +31,18 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && canInteract)
         {
-            playerAnim.SetBool("isPlayerAct", true);
-            delayCoroutine =  StartCoroutine(interactionDelay());
+            if (playerAnim.GetBool("isPlayerAct"))
+            {
+                playerAnim.SetBool("isPlayerAct", false);
+                this.GetComponent<PlayerMovement>().canPlayerMove = true;
+                stopDelay();
+            }
+            else
+            {
+                this.GetComponent<PlayerMovement>().canPlayerMove = false;
+                playerAnim.SetBool("isPlayerAct", true);
+                delayCoroutine = StartCoroutine(interactionDelay());
+            }
         }
     }
 
@@ -44,5 +54,6 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         playerAnim.SetBool("isPlayerAct", false);
         _voidEventChannelSO.RaiseEvent();
+        this.GetComponent<PlayerMovement>().canPlayerMove = true;
     }
 }
