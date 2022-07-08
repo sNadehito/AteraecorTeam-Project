@@ -1,3 +1,5 @@
+<img src="Assets/Sprites/Background/title%20screen.png" height=350>
+
 # My Little Plant
 Unity Project for [Cultivation Jam](https://itch.io/jam/cultivation "Cultivation Jam")  
 by AteraecorTeam
